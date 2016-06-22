@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path, notice: "The product was successfully created"
+      redirect_to products_path, notice: "The product was successfully created"
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to root_path, notice: "The product was successfully updated"
+      redirect_to products_path, notice: "The product was successfully updated"
     else
       render 'edit'
     end
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path, notice: "The product was successfully deleted"
+    redirect_to products_path, notice: "The product was successfully deleted"
   end
 
   private
