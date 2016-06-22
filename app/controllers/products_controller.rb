@@ -19,11 +19,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
@@ -41,7 +39,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, category_ids: [])
     end
 
     def set_product
