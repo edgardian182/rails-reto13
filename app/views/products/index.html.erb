@@ -14,12 +14,13 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= link_to product.name, product %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency(product.price, precision: 2) %></td>
         <td>
-          <% product.categories.each do |category| %>
+          <!-- Se usa PLUCK para arrancar un atributo a la clase -->
+          <%= product.categories.pluck(:name).join(', ') %>
+          <!-- <% product.categories.each do |category| %>
             <%= category.name %>,
-          <% end %>
-
+          <% end %> -->
         </td>
         <td>
           <%= link_to "Editar", edit_product_path(product) %>

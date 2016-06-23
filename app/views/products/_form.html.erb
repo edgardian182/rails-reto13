@@ -9,9 +9,14 @@
           <%= f.number_field :price, class:"form-control", placeholder: "Precio del producto" %>
         </div>
         <div class="form-group">
-          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-                    <% cb.label(class:"checkbox-inline input_checkbox") {cb.check_box(class:"checkbox") + cb.text} %>
-                  <% end %>
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+          <!-- Poner las CATEGORIES en vertical -->
+            <div class="checkbox">
+               <%= c.label do %>
+                 <%= c.check_box %> <%= c.object.name %>
+               <% end %>
+             </div>
+          <% end %>
         </div>
         <div class="form-group">
           <%= f.submit class:"btn btn-primary btn-block" %>
